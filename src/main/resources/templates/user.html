@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${user.getUsername()}"></title>
+</head>
+<body>
+<div>
+    <h3>User info:</h3>
+    <span th:text="*{user.userId}">Id</span>
+    <span th:text="*{user.username}">Username</span>
+    <span>Роли</span>
+    <span th:text="'   '+${user.authoritiesAsString()}">Role</span>
+</div>
+<div>
+    <button><a th:href="@{/admin/edit/{id}(id=${user.getUserId()})}">Редактировать</a></button>
+    <form th:method="delete" action="/admin/delete">
+        <label>
+            <input type="text" hidden="hidden" th:value="${user.userId}" name="id">
+        </label>
+        <input type="submit"
+               value="Удалить">
+    </form>
+    <a href="/admin/users">Пользователи</a>
+</div>
+</body>
+</html>

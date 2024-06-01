@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+</head>
+<body>
+<div>
+    <form th:method="patch" action="/admin/edit" th:object="${user}">
+        <div>
+            <label>
+                <input type="number" name="id" hidden="hidden" th:value="${user.userId}">
+            </label>
+            <label for="username">Username</label>
+            <input type="text" th:placeholder="*{username}" name="username" id="username">
+        </div>
+        <span>Роли</span>
+        <span  th:text="'   '+${user.authoritiesAsString()}">Role</span>
+        <input type="submit" value="Редактировать">
+    </form>
+</div>
+</body>
+</html>

@@ -5,25 +5,48 @@
     <title>Главная</title>
 </head>
 <body>
+<div style="display: flex;
+    margin: auto;
+    width: 50vw;
+    height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: blanchedalmond;
+    color: darkslateblue;
+font-size: 50px">
+    <div style="display: flex; align-items: center; flex-direction: column">
+        <a th:if="${role} =='ROLE_ADMIN'" href="/admin/users">
+            Пользователи
+        </a>
+        <div th:switch="${loginStatus}">
+            <div th:case="false">
 
-<div style="display: flex; align-items: center; flex-direction: column">
-    <a th:if="${role} =='ROLE_ADMIN'" href="/admin/users">
-        Пользователи
-    </a>
-    <div th:switch="${loginStatus}">
-        <div th:case="false">
-
-            <a th:href="@{/auth/login}">
-                Войти
-            </a>
-            <a th:href="@{/auth/registration}">
-                Регистрация
+                <a th:href="@{/auth/login}">
+                    Войти
+                </a>
+                <a th:href="@{/auth/registration}">
+                    Регистрация
+                </a>
+            </div>
+            <a th:case="true" th:href="@{/logout}">
+                Выйти
             </a>
         </div>
-        <a th:case="true" th:href="@{/logout}">
-            Выйти
-        </a>
     </div>
 </div>
+<style>
+    a{
+        text-decoration: none;
+        color: darkslateblue;
+    }
+    a:focus{
+        color: black;
+    }
+    a:hover{
+        animation-delay: 3s;
+        color: black;
+    }
+</style>
 </body>
 </html>

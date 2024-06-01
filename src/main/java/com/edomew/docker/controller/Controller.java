@@ -22,6 +22,7 @@ public class Controller {
                                     :
                                     null
                     );
+            return "index";
         } else {
             model.addAttribute("loginStatus", false);
         }
