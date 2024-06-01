@@ -8,7 +8,9 @@
 <div>
     <form th:method="patch" action="/admin/edit" th:object="${user}">
         <div>
-            <input type="number" name="id" hidden="hidden" th:value="${user.userId}">
+            <label>
+                <input type="number" name="id" hidden="hidden" th:value="${user.userId}">
+            </label>
             <label for="username">Username</label>
             <input type="text" th:placeholder="*{username}" name="username" id="username">
         </div>

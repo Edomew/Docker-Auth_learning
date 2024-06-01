@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,12 +21,11 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    @Length(min = 1)
     @Min(-19764320)
     @Max(19764320)
     private Integer userId;
     @Column(unique = true, nullable = false)
-@Length(min = 4, max = 20)
+    @Length(min = 4, max = 20)
     private String username;
     @Column(nullable = false)
     @Length(min = 8, max = 20)
@@ -53,13 +51,15 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.authorities;
     }
-public String authoritiesAsString() {
+
+    public String authoritiesAsString() {
         StringBuilder authoritiesAsString = new StringBuilder();
         for (Role role : this.authorities) {
             authoritiesAsString.append(role.getRole()).append(" ");
         }
         return authoritiesAsString.toString();
-}
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
