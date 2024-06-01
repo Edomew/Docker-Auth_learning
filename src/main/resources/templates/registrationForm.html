@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reg</title>
+</head>
+<body>
+<form style="display: flex;flex-direction: column;align-items: center" id="myForm" th:method="post"
+      th:action="@{/auth/register}">
+    <span><input type="text" name="username" id="username"><label for="username">Username</label></span>
+    <span><input type="password" name="password" id="password"><label for="password">Password</label></span>
+    <input type="submit" value="Reg">
+</form>
+</body>
+</html>

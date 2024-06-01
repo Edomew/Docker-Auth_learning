@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/docker
+      - SPRING_DATASOURCE_USERNAME=Edomew
+      - SPRING_DATASOURCE_PASSWORD=Edomews
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0.26
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=docker
+      - MYSQL_USER=Edomew
+      - MYSQL_PASSWORD=Edomews
+      - MYSQL_ROOT_PASSWORD=Edomews
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data:
