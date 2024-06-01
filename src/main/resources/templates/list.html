@@ -22,7 +22,7 @@ font-size: 40px">
         </tr>
         <tr th:each="user: ${users}">
             <td th:text="${user.getUserId()}">ID</td>
-            <td th:text="${user.getUsername()}">Имя</td>
+            <td th:utext="|${user.getUsername()} <a href=&quot;@{/admin/users/{id}(id=${user.getUserId()})}&quot> Admin Page</a>|">Подробнее</a>'|">Имя </td>
         </tr>
     </table>
     <div>

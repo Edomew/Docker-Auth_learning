@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Перенаправление</title>
+    <script type="text/javascript">
+        // Установите время обратного отсчета в секундах
+        let countdownSeconds = 5;
+        function countdown() {
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = 'Перенаправление через ' + countdownSeconds + ' секунд...';
+
+            if (countdownSeconds === 0) {
+                // Перенаправление на другую страницу
+                window.location.href = '/admin/users';
+            } else {
+                countdownSeconds--;
+                setTimeout(countdown, 1000);
+            }
+        }
+
+        // Запустите обратный отсчет при загрузке страницы
+        window.onload = countdown;
+    </script>
+</head>
+<body>
+<p id="countdown">Перенаправление...</p>
+</body>
+</html>
