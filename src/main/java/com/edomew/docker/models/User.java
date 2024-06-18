@@ -28,8 +28,6 @@ public class User implements UserDetails {
     @Length(min = 4, max = 20)
     private String username;
     @Column(nullable = false)
-    @Length(min = 8, max = 20)
-
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
